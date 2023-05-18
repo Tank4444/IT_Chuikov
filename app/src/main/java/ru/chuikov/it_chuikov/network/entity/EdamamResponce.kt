@@ -1,940 +1,862 @@
 package ru.chuikov.it_chuikov.network.entity
 
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
-@Serializable
 data class EdamamResponce(
-    @SerialName("count")
+    @SerializedName("count")
     val count: Int,
-    @SerialName("from")
+    @SerializedName("from")
     val from: Int,
-    @SerialName("hits")
+    @SerializedName("hits")
     val hits: List<Hit>,
-    @SerialName("_links")
+    @SerializedName("_links")
     val links: Links,
-    @SerialName("to")
+    @SerializedName("to")
     val to: Int
 ) {
-    @Serializable
     data class Hit(
-        @SerialName("_links")
+        @SerializedName("_links")
         val links: Links,
-        @SerialName("recipe")
+        @SerializedName("recipe")
         val recipe: Recipe
     ) {
-        @Serializable
         data class Links(
-            @SerialName("self")
+            @SerializedName("self")
             val self: Self
         ) {
-            @Serializable
             data class Self(
-                @SerialName("href")
+                @SerializedName("href")
                 val href: String,
-                @SerialName("title")
+                @SerializedName("title")
                 val title: String
             )
         }
 
-        @Serializable
         data class Recipe(
-            @SerialName("calories")
+            @SerializedName("calories")
             val calories: Double,
-            @SerialName("cautions")
+            @SerializedName("cautions")
             val cautions: List<String>,
-            @SerialName("cuisineType")
+            @SerializedName("cuisineType")
             val cuisineType: List<String>,
-            @SerialName("dietLabels")
+            @SerializedName("dietLabels")
             val dietLabels: List<String>,
-            @SerialName("digest")
+            @SerializedName("digest")
             val digest: List<Digest>,
-            @SerialName("dishType")
+            @SerializedName("dishType")
             val dishType: List<String>,
-            @SerialName("healthLabels")
+            @SerializedName("healthLabels")
             val healthLabels: List<String>,
-            @SerialName("image")
+            @SerializedName("image")
             val image: String,
-            @SerialName("images")
+            @SerializedName("images")
             val images: Images,
-            @SerialName("ingredientLines")
+            @SerializedName("ingredientLines")
             val ingredientLines: List<String>,
-            @SerialName("ingredients")
+            @SerializedName("ingredients")
             val ingredients: List<Ingredient>,
-            @SerialName("label")
+            @SerializedName("label")
             val label: String,
-            @SerialName("mealType")
+            @SerializedName("mealType")
             val mealType: List<String>,
-            @SerialName("shareAs")
+            @SerializedName("shareAs")
             val shareAs: String,
-            @SerialName("source")
+            @SerializedName("source")
             val source: String,
-            @SerialName("totalDaily")
+            @SerializedName("totalDaily")
             val totalDaily: TotalDaily,
-            @SerialName("totalNutrients")
+            @SerializedName("totalNutrients")
             val totalNutrients: TotalNutrients,
-            @SerialName("totalTime")
+            @SerializedName("totalTime")
             val totalTime: Double,
-            @SerialName("totalWeight")
+            @SerializedName("totalWeight")
             val totalWeight: Double,
-            @SerialName("uri")
+            @SerializedName("uri")
             val uri: String,
-            @SerialName("url")
+            @SerializedName("url")
             val url: String,
-            @SerialName("yield")
+            @SerializedName("yield")
             val yield: Double
         ) {
-            @Serializable
             data class Digest(
-                @SerialName("daily")
+                @SerializedName("daily")
                 val daily: Double,
-                @SerialName("hasRDI")
+                @SerializedName("hasRDI")
                 val hasRDI: Boolean,
-                @SerialName("label")
+                @SerializedName("label")
                 val label: String,
-                @SerialName("schemaOrgTag")
+                @SerializedName("schemaOrgTag")
                 val schemaOrgTag: String,
-                @SerialName("sub")
+                @SerializedName("sub")
                 val sub: List<Sub>,
-                @SerialName("tag")
+                @SerializedName("tag")
                 val tag: String,
-                @SerialName("total")
+                @SerializedName("total")
                 val total: Double,
-                @SerialName("unit")
+                @SerializedName("unit")
                 val unit: String
             ) {
-                @Serializable
                 data class Sub(
-                    @SerialName("daily")
+                    @SerializedName("daily")
                     val daily: Double,
-                    @SerialName("hasRDI")
+                    @SerializedName("hasRDI")
                     val hasRDI: Boolean,
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("schemaOrgTag")
+                    @SerializedName("schemaOrgTag")
                     val schemaOrgTag: String,
-                    @SerialName("tag")
+                    @SerializedName("tag")
                     val tag: String,
-                    @SerialName("total")
+                    @SerializedName("total")
                     val total: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
             }
 
-            @Serializable
             data class Images(
-                @SerialName("LARGE")
+                @SerializedName("LARGE")
                 val lARGE: LARGE,
-                @SerialName("REGULAR")
+                @SerializedName("REGULAR")
                 val rEGULAR: REGULAR,
-                @SerialName("SMALL")
+                @SerializedName("SMALL")
                 val sMALL: SMALL,
-                @SerialName("THUMBNAIL")
+                @SerializedName("THUMBNAIL")
                 val tHUMBNAIL: THUMBNAIL
             ) {
-                @Serializable
                 data class LARGE(
-                    @SerialName("height")
+                    @SerializedName("height")
                     val height: Int,
-                    @SerialName("url")
+                    @SerializedName("url")
                     val url: String,
-                    @SerialName("width")
+                    @SerializedName("width")
                     val width: Int
                 )
 
-                @Serializable
                 data class REGULAR(
-                    @SerialName("height")
+                    @SerializedName("height")
                     val height: Int,
-                    @SerialName("url")
+                    @SerializedName("url")
                     val url: String,
-                    @SerialName("width")
+                    @SerializedName("width")
                     val width: Int
                 )
 
-                @Serializable
                 data class SMALL(
-                    @SerialName("height")
+                    @SerializedName("height")
                     val height: Int,
-                    @SerialName("url")
+                    @SerializedName("url")
                     val url: String,
-                    @SerialName("width")
+                    @SerializedName("width")
                     val width: Int
                 )
 
-                @Serializable
                 data class THUMBNAIL(
-                    @SerialName("height")
+                    @SerializedName("height")
                     val height: Int,
-                    @SerialName("url")
+                    @SerializedName("url")
                     val url: String,
-                    @SerialName("width")
+                    @SerializedName("width")
                     val width: Int
                 )
             }
 
-            @Serializable
             data class Ingredient(
-                @SerialName("food")
+                @SerializedName("food")
                 val food: String,
-                @SerialName("foodCategory")
+                @SerializedName("foodCategory")
                 val foodCategory: String,
-                @SerialName("foodId")
+                @SerializedName("foodId")
                 val foodId: String,
-                @SerialName("image")
+                @SerializedName("image")
                 val image: String,
-                @SerialName("measure")
+                @SerializedName("measure")
                 val measure: String,
-                @SerialName("quantity")
+                @SerializedName("quantity")
                 val quantity: Double,
-                @SerialName("text")
+                @SerializedName("text")
                 val text: String,
-                @SerialName("weight")
+                @SerializedName("weight")
                 val weight: Double
             )
 
-            @Serializable
             data class TotalDaily(
-                @SerialName("CA")
+                @SerializedName("CA")
                 val cA: CA,
-                @SerialName("CHOCDF")
+                @SerializedName("CHOCDF")
                 val cHOCDF: CHOCDF,
-                @SerialName("CHOLE")
+                @SerializedName("CHOLE")
                 val cHOLE: CHOLE,
-                @SerialName("ENERC_KCAL")
+                @SerializedName("ENERC_KCAL")
                 val eNERCKCAL: ENERCKCAL,
-                @SerialName("FASAT")
+                @SerializedName("FASAT")
                 val fASAT: FASAT,
-                @SerialName("FAT")
+                @SerializedName("FAT")
                 val fAT: FAT,
-                @SerialName("FE")
+                @SerializedName("FE")
                 val fE: FE,
-                @SerialName("FIBTG")
+                @SerializedName("FIBTG")
                 val fIBTG: FIBTG,
-                @SerialName("FOLDFE")
+                @SerializedName("FOLDFE")
                 val fOLDFE: FOLDFE,
-                @SerialName("K")
+                @SerializedName("K")
                 val k: K,
-                @SerialName("MG")
+                @SerializedName("MG")
                 val mG: MG,
-                @SerialName("NA")
+                @SerializedName("NA")
                 val nA: NA,
-                @SerialName("NIA")
+                @SerializedName("NIA")
                 val nIA: NIA,
-                @SerialName("P")
+                @SerializedName("P")
                 val p: P,
-                @SerialName("PROCNT")
+                @SerializedName("PROCNT")
                 val pROCNT: PROCNT,
-                @SerialName("RIBF")
+                @SerializedName("RIBF")
                 val rIBF: RIBF,
-                @SerialName("THIA")
+                @SerializedName("THIA")
                 val tHIA: THIA,
-                @SerialName("TOCPHA")
+                @SerializedName("TOCPHA")
                 val tOCPHA: TOCPHA,
-                @SerialName("VITA_RAE")
+                @SerializedName("VITA_RAE")
                 val vITARAE: VITARAE,
-                @SerialName("VITB12")
+                @SerializedName("VITB12")
                 val vITB12: VITB12,
-                @SerialName("VITB6A")
+                @SerializedName("VITB6A")
                 val vITB6A: VITB6A,
-                @SerialName("VITC")
+                @SerializedName("VITC")
                 val vITC: VITC,
-                @SerialName("VITD")
+                @SerializedName("VITD")
                 val vITD: VITD,
-                @SerialName("VITK1")
+                @SerializedName("VITK1")
                 val vITK1: VITK1,
-                @SerialName("ZN")
+                @SerializedName("ZN")
                 val zN: ZN
             ) {
-                @Serializable
                 data class CA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class CHOCDF(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class CHOLE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class ENERCKCAL(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FASAT(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FAT(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FIBTG(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FOLDFE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class K(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class MG(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class NA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class NIA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class P(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class PROCNT(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class RIBF(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class THIA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class TOCPHA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITARAE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITB12(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITB6A(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITC(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITD(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITK1(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class ZN(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
             }
 
-            @Serializable
             data class TotalNutrients(
-                @SerialName("CA")
+                @SerializedName("CA")
                 val cA: CA,
-                @SerialName("CHOCDF")
+                @SerializedName("CHOCDF")
                 val cHOCDF: CHOCDF,
-                @SerialName("CHOCDF.net")
+                @SerializedName("CHOCDF.net")
                 val cHOCDFNet: CHOCDFNet,
-                @SerialName("CHOLE")
+                @SerializedName("CHOLE")
                 val cHOLE: CHOLE,
-                @SerialName("ENERC_KCAL")
+                @SerializedName("ENERC_KCAL")
                 val eNERCKCAL: ENERCKCAL,
-                @SerialName("FAMS")
+                @SerializedName("FAMS")
                 val fAMS: FAMS,
-                @SerialName("FAPU")
+                @SerializedName("FAPU")
                 val fAPU: FAPU,
-                @SerialName("FASAT")
+                @SerializedName("FASAT")
                 val fASAT: FASAT,
-                @SerialName("FAT")
+                @SerializedName("FAT")
                 val fAT: FAT,
-                @SerialName("FATRN")
+                @SerializedName("FATRN")
                 val fATRN: FATRN,
-                @SerialName("FE")
+                @SerializedName("FE")
                 val fE: FE,
-                @SerialName("FIBTG")
+                @SerializedName("FIBTG")
                 val fIBTG: FIBTG,
-                @SerialName("FOLAC")
+                @SerializedName("FOLAC")
                 val fOLAC: FOLAC,
-                @SerialName("FOLDFE")
+                @SerializedName("FOLDFE")
                 val fOLDFE: FOLDFE,
-                @SerialName("FOLFD")
+                @SerializedName("FOLFD")
                 val fOLFD: FOLFD,
-                @SerialName("K")
+                @SerializedName("K")
                 val k: K,
-                @SerialName("MG")
+                @SerializedName("MG")
                 val mG: MG,
-                @SerialName("NA")
+                @SerializedName("NA")
                 val nA: NA,
-                @SerialName("NIA")
+                @SerializedName("NIA")
                 val nIA: NIA,
-                @SerialName("P")
+                @SerializedName("P")
                 val p: P,
-                @SerialName("PROCNT")
+                @SerializedName("PROCNT")
                 val pROCNT: PROCNT,
-                @SerialName("RIBF")
+                @SerializedName("RIBF")
                 val rIBF: RIBF,
-                @SerialName("SUGAR")
+                @SerializedName("SUGAR")
                 val sUGAR: SUGAR,
-                @SerialName("SUGAR.added")
+                @SerializedName("SUGAR.added")
                 val sUGARAdded: SUGARAdded,
-                @SerialName("Sugar.alcohol")
+                @SerializedName("Sugar.alcohol")
                 val sugarAlcohol: SugarAlcohol,
-                @SerialName("THIA")
+                @SerializedName("THIA")
                 val tHIA: THIA,
-                @SerialName("TOCPHA")
+                @SerializedName("TOCPHA")
                 val tOCPHA: TOCPHA,
-                @SerialName("VITA_RAE")
+                @SerializedName("VITA_RAE")
                 val vITARAE: VITARAE,
-                @SerialName("VITB12")
+                @SerializedName("VITB12")
                 val vITB12: VITB12,
-                @SerialName("VITB6A")
+                @SerializedName("VITB6A")
                 val vITB6A: VITB6A,
-                @SerialName("VITC")
+                @SerializedName("VITC")
                 val vITC: VITC,
-                @SerialName("VITD")
+                @SerializedName("VITD")
                 val vITD: VITD,
-                @SerialName("VITK1")
+                @SerializedName("VITK1")
                 val vITK1: VITK1,
-                @SerialName("WATER")
+                @SerializedName("WATER")
                 val wATER: WATER,
-                @SerialName("ZN")
+                @SerializedName("ZN")
                 val zN: ZN
             ) {
-                @Serializable
                 data class CA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class CHOCDF(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class CHOCDFNet(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class CHOLE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class ENERCKCAL(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FAMS(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FAPU(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FASAT(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FAT(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FATRN(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FIBTG(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FOLAC(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FOLDFE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class FOLFD(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class K(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class MG(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class NA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class NIA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class P(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class PROCNT(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class RIBF(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class SUGAR(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class SUGARAdded(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class SugarAlcohol(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class THIA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class TOCPHA(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITARAE(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITB12(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITB6A(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITC(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITD(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class VITK1(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class WATER(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
 
-                @Serializable
                 data class ZN(
-                    @SerialName("label")
+                    @SerializedName("label")
                     val label: String,
-                    @SerialName("quantity")
+                    @SerializedName("quantity")
                     val quantity: Double,
-                    @SerialName("unit")
+                    @SerializedName("unit")
                     val unit: String
                 )
             }
         }
     }
 
-    @Serializable
     data class Links(
-        @SerialName("next")
+        @SerializedName("next")
         val next: Next
     ) {
-        @Serializable
         data class Next(
-            @SerialName("href")
+            @SerializedName("href")
             val href: String,
-            @SerialName("title")
+            @SerializedName("title")
             val title: String
         )
     }
